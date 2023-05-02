@@ -1,10 +1,28 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
+int cantBits(int n) {
+    int count = 0;
+    while (n != 0) {
+        count += n & 1;
+        n >>= 1;
+    }
+    return count;
+}
+
+bool comparar(int a, int b) {
+    int cantA = cantBits(a);
+    int cantB = cantBits(b);
+    if (cantA == cantB) {
+        return a < b;
+    }
+    return cantA < cantB;
+}
 
 vector<int> sortByBits(vector<int>& arr) {
-    // sort(arr.begin(), arr.end(), comparar);
+    sort(arr.begin(), arr.end(), comparar);
     return arr;
 }
 
@@ -22,5 +40,4 @@ int main() {
             cout << ",";
         }
     }
-    
 }
