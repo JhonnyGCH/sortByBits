@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> sortByBits(vector<int>& arr) {
     // sort(arr.begin(), arr.end(), comparar);
-    // return arr;
+    return arr;
 }
 
 int main() {
@@ -15,9 +15,12 @@ int main() {
 		arr.push_back(n);
         cin.ignore(); 
 	}
-	// vector<int> arr2 = sortByBits(arr);
-	for (int i = 0; i < arr.size(); i++){
-        cout << arr[i] ;
+	vector<int> arr2 = sortByBits(arr);
+	for (int i : arr2) {
+       cout << i ;
+       if (i != arr2.back()) {
+            cout << ",";
+        }
     }
     
 }
